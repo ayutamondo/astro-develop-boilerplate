@@ -1,0 +1,23 @@
+---
+interface NewsItem {
+  date: string
+  category: string
+  title: string
+}
+
+const { items } = Astro.props as { items: NewsItem[] }
+---
+
+<ul class="c-newsList">
+  {
+    items.map((item) => (
+      <li class="c-newsList_item">
+        <a href="">
+          <p class="c-newsList_date">{item.date}</p>
+          <p class="c-newsList_cat">{item.category}</p>
+          <p class="c-newsList_title">{item.title}</p>
+        </a>
+      </li>
+    ))
+  }
+</ul>

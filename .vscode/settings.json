@@ -1,0 +1,52 @@
+{
+  "files.eol": "\n",
+  // "editor.formatOnSave": true,
+  "editor.detectIndentation": false,
+  //   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.insertSpaces": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // Astroファイルにもフォーマッターを効かせる
+  "[astro]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[css]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[scss]": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  // Prettierの設定（任意。独自設定がある場合は調整）
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  // 補完や型チェックを効かせる（TypeScript系）
+  "typescript.tsdk": "node_modules/typescript/lib",
+  // import の自動補完やパス解決の強化
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifier": "relative",
+
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": false
+}

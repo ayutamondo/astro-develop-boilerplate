@@ -1,0 +1,8 @@
+{
+"rules": {
+    "class-pattern": [
+      "error",
+      { "pattern": "bem" }
+    ]
+  }
+}

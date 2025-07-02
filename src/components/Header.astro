@@ -1,0 +1,36 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+]
+
+const { pageId } = Astro.props
+---
+
+<header class="site-header">
+  <div class="container">
+    {
+      (pageId === 'top' && (
+        <h1 class="site-title">
+          <a href="/">MySite</a>
+        </h1>
+      )) || (
+        <div class="site-title">
+          <a href="/">MySite</a>
+        </div>
+      )
+    }
+    <nav class="site-nav">
+      <ul>
+        {
+          navLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,82 @@
+@mixin txtNormal {
+  font-family: 'Hiragino Sans';
+  font-weight: 400;
+  font-size: 1.6rem;
+  letter-spacing: 0.12em;
+  line-height: 3.2rem;
+  color: #222;
+}
+
+@mixin inner($mW: 102.4rem, $w: 92%, $mT: 0, $mB: 0px) {
+  margin-top: $mT;
+  margin-bottom: $mB;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $mW;
+
+  width: 98%;
+
+  // @media #{$sp} {
+  //   width: $w;
+  //   max-width: 32.7rem;
+  // }
+}
+
+@mixin lineAbb($line: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin linkHover($op: 0.9) {
+  transition: 0.3s;
+
+  &:hover {
+    opacity: $op;
+  }
+}
+
+@mixin fontGothic {
+  /* 游ゴシック体 */
+  font-family:
+    '游ゴシック体', 'Yu Gothic', YuGothic, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro',
+    'メイリオ', Meiryo, 'MS Pゴシック', 'MS PGothic', sans-serif;
+}
+
+@mixin fontFutura {
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@mixin fontFuturaBold {
+  font-family: 'futura_bold_btbook', sans-serif;
+  font-weight: bold;
+}
+
+@mixin fontDm {
+  font-family: 'DM Sans', sans-serif;
+}
+
+@mixin fontDin {
+  font-family: 'Oswald', sans-serif;
+}
+
+@mixin fontMin {
+  font-family: YuMincho;
+}
+
+@mixin textGrad($deg: 90deg, $s: 0%, $e: 40%) {
+  background: linear-gradient($deg, #6fc3d3 $s, #0e7092 $e);
+  -webkit-background-clip: text; //テキストでくり抜く
+  -webkit-text-fill-color: transparent; //くり抜いた部分は背景を表示
+}
+
+@mixin pddAll {
+  padding: 80px 0;
+
+  @media #{$sp} {
+    padding: 64px 0;
+  }
+}

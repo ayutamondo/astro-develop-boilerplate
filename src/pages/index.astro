@@ -1,0 +1,35 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import NewsList from '../components/NewsList.astro'
+import { newsItems } from '../data/news'
+import '../styles/main.scss'
+import '../styles/common.scss'
+
+const pageId = 'top'
+
+import app from '../scripts/app.js?url';
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astro サンプルページ</title>
+    <!-- JavaScript をロード -->
+    <script type="module" src={app}></script>
+  </head>
+  <body>
+    <Header pageId={pageId} />
+
+    <main class="main-content">
+      <h2 class="main-content__title">ようこそ Astro サイトへ！</h2>
+      <p class="main-content__text">これは Astro + SCSS + JS の構成サンプルです。</p>
+      <p class="mainContent_title">まぶすルール</p>
+      <button><h3>タイトルです</h3></button>
+      <NewsList items={newsItems} />
+    </main>
+
+    <Footer />
+  </body>
+</html>
