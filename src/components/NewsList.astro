@@ -8,14 +8,14 @@ interface NewsItem {
 const { items } = Astro.props as { items: NewsItem[] }
 ---
 
-<ul class="c-newsList">
+<ul class="news-list">
   {
     items.map((item) => (
-      <li class="c-newsList_item">
+      <li class="news-list__item">
         <a href="">
-          <p class="c-newsList_date">{item.date}</p>
-          <p class="c-newsList_cat">{item.category}</p>
-          <p class="c-newsList_title">{item.title}</p>
+          <p class="news-list__date">{item.date}</p>
+          <p class="news-list__cat">{item.category}</p>
+          <p class="news-list__title">{item.title}</p>
         </a>
       </li>
     ))

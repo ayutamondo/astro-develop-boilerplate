@@ -44,6 +44,12 @@ node v24.3.0
 | HTMLコードチェック（API）      | `npm run w3c`      | HTMLのオンラインAPIを使った検証（W3C ValidatorのAPI・１日の利用回数制限がある）   |
 | HTMLコードチェック（ローカル） | `npm run htmllint` | ローカルでHTMLコードチェック＆BEM形式チェック（.htmlvalidate.jsonで設定変更可能） |
 
+### リンター機能について
+
+`npm run htmllint`についてはbemルールに則ったリンターとなっています。
+
+不要な場合は`.htmlvalidate.json`の設定を変更してください。
+
 ## スクリーンショット機能
 
 ```

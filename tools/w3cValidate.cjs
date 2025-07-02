@@ -66,20 +66,30 @@ function searchDivs() {
 
   htmlFiles.forEach((file) => {
     const content = fs.readFileSync(file, 'utf8')
-    const lines = content.split('\n')
     const foundDivs = []
 
-    lines.forEach((line, index) => {
-      const divMatches = line.match(/<div(?![^>]*\s(class|id)=)[^>]*>/g)
-      if (divMatches) {
-        divMatches.forEach((div) => {
-          foundDivs.push({
-            line: index + 1,
-            content: div,
-          })
+    // 属性がなくてもマッチさせる
+    const regex = /<div(?:\s+([^>]*?))?>/g
+    let match
+
+    while ((match = regex.exec(content)) !== null) {
+      const attrs = match[1] || ''
+      const lineNumber = content.substring(0, match.index).split('\n').length
+
+      // class="" や id="" も除外対象にしない（=警告出す）
+      const classMatch = attrs.match(/\bclass\s*=\s*["']([^"']*)["']/)
+      const idMatch = attrs.match(/\bid\s*=\s*["']([^"']*)["']/)
+
+      const hasNonEmptyClass = classMatch && classMatch[1].trim() !== ''
+      const hasNonEmptyId = idMatch && idMatch[1].trim() !== ''
+
+      if (!hasNonEmptyClass && !hasNonEmptyId) {
+        foundDivs.push({
+          line: lineNumber,
+          content: `<div${attrs ? ' ' + attrs : ''}>`,
         })
       }
-    })
+    }
 
     if (foundDivs.length > 0) {
       console.log(`⚠️ クラス・IDなし<div>を検出: ${file}`)

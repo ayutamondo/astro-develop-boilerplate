@@ -1,4 +1,5 @@
 {
+"extends": ["html-validate:recommended"],
 "rules": {
     "class-pattern": [
       "error",
