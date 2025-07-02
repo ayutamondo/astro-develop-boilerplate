@@ -12,19 +12,11 @@ node v24.3.0
 
 `npm install playwright`でスクリーンショット用のブラウザをインストール。
 
-## astro 起動コマンド
+## Astro 起動コマンド
 
 `npm run astro`
 
-ローカルサーバー http://localhost:4321/ が起動し、ファイルの変更があると自動で以下のコンパイルが行われます。
-
-| 内容                     | 変更フォルダ | 生成フォルダ      |
-| ------------------------ | ------------ | ----------------- |
-| scss ファイルの css 変換 | src/scss     | dist/assets/css   |
-| ejs ファイルの html 変換 | src/ejs      | product           |
-| 画像の圧縮               | src/image    | dist/assets/image |
-
-※変換後のファイルは自動で上書きされてしまうため直接触らないようにしましょう。
+ローカルサーバー http://localhost:4321/ が起動します。
 
 ### フォルダ構成
 
