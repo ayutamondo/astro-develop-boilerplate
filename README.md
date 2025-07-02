@@ -25,17 +25,15 @@ node v24.3.0
 | dist     | html生成後のフォルダ         |
 | src      | コンパイル前のデータフォルダ |
 
-### gulp 単独作業コマンド
+### 作業用コマンド
 
-`npm run sass`：scss ファイルの変換
+`npm run build`：Astroファイルを静的ファイルとしてビルド。独自の形式になります。ちなみに画像は圧縮済みとなります。
 
-`npm run format`：Astroファイルも含めたフォーマット
+`npm run sass`：Scssファイルのcss変換
+
+`npm run format`：Astroファイルも含めてフォーマット
 
 `npm run favicon`：/favicon/favicon.pngをファビコン画像に変換
-
-## 静的ファイルとしてビルド
-
-`npm run build`：画像は圧縮済みとなります。
 
 ## リンター機能
 
