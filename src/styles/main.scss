@@ -1,15 +1,3 @@
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: #f8f8f8;
-  color: $base-color; // 変数なので $ 付きです
-}
-
-.container {
-  padding: 1rem;
-  @include inner;
-}
-
 .site-header,
 .site-footer {
   background: $base-color;
@@ -42,4 +30,10 @@ body {
 .main-content {
   padding: 2rem 1rem;
   @include inner;
+
+  &__title {
+    &--red {
+      color: red;
+    }
+  }
 }

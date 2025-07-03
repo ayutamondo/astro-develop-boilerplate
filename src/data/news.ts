@@ -1,4 +1,6 @@
-export const newsItems = [
+import type { NewsItem } from "../types";
+
+export const newsItems: NewsItem[] = [
   {
     date: '2025-06-30',
     category: 'お知らせ',

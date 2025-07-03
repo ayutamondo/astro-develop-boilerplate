@@ -1,3 +1,15 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f8f8f8;
+  color: $base-color; // 変数なので $ 付きです
+}
+
+.container {
+  padding: 1rem;
+  @include inner;
+}
+
 .news-list {
   list-style: none;
   padding: 0;

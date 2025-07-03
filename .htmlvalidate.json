@@ -1,9 +1,6 @@
 {
-"extends": ["html-validate:recommended"],
-"rules": {
-    "class-pattern": [
-      "error",
-      { "pattern": "bem" }
-    ]
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "class-pattern": ["error", { "pattern": "bem" }]
   }
 }

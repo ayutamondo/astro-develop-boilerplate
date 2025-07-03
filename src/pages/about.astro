@@ -1,34 +1,25 @@
 ---
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
+import BaseLayout from '../components/BaseLayout.astro'
 import '../styles/main.scss'
+import type { PageParam } from '../types'
 
-const pageId = 'about'
+const pageParam: PageParam = {
+  id: 'about',
+  title: '会社概要',
+}
 ---
 
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About - サイト名</title>
-    <link rel="stylesheet" href="/styles/main.css" />
-  </head>
-  <body>
-    <Header pageId={pageId} />
-
-    <main class="main-content container">
-      <h1>About</h1>
-      <p>こちらはサイトのAboutページです。</p>
-      <section>
-        <h2>会社概要</h2>
-        <p>ここに会社の説明などを書きます。</p>
-      </section>
-      <section>
-        <h2>沿革</h2>
-        <p>会社の歴史や背景などを紹介します。</p>
-      </section>
-    </main>
-
-    <Footer />
-  </body>
-</html>
+<BaseLayout pageParam={pageParam}>
+  <main class="main-content container">
+    <h1>About</h1>
+    <p>こちらはサイトのAboutページです。</p>
+    <section>
+      <h2>会社概要</h2>
+      <p>ここに会社の説明などを書きます。</p>
+    </section>
+    <section>
+      <h2>沿革</h2>
+      <p>会社の歴史や背景などを紹介します。</p>
+    </section>
+  </main>
+</BaseLayout>

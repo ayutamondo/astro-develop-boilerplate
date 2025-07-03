@@ -1,23 +1,25 @@
 ---
+import type { PageParam } from "../types"
+
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ]
 
-const { pageId } = Astro.props
+const { pageParam } = Astro.props as {pageParam: PageParam}
 ---
 
 <header class="site-header">
   <div class="container">
     {
-      (pageId === 'top' && (
+      (pageParam.id === 'top' && (
         <h1 class="site-title">
-          <a href="/">MySite</a>
+          <a href="/">{pageParam.title}</a>
         </h1>
       )) || (
         <div class="site-title">
-          <a href="/">MySite</a>
+          <a href="/">{pageParam.title}</a>
         </div>
       )
     }
