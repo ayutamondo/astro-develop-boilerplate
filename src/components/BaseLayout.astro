@@ -9,12 +9,11 @@ import '../styles/common.scss'
 const { pageParam } = Astro.props as { pageParam: PageParam }
 const baseTitle = 'ボイラープレートの下層ページ'
 let title = pageParam.id === 'top' ? '' : `${pageParam.title} | ` + baseTitle
-if(pageParam.id === "top") {
+if (pageParam.id === 'top') {
   title = pageParam.title
 } else {
   title = `${pageParam.title} | ` + baseTitle
 }
-
 ---
 
 <html lang="ja">

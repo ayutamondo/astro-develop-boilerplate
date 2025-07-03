@@ -35,7 +35,19 @@ node v24.3.0
 
 `npm run favicon`：/favicon/favicon.pngをファビコン画像に変換
 
-## リンター機能
+## Astroの機能
+
+`npm run dev`で起動したページの下の方に開発ツールバーが表示されます。
+
+Auditボタンでアクセシビリティの問題点を指摘してくれます。
+
+## Prettier
+
+VSCodeの拡張機能からPrettierをインストールし、VScodeの設定でdefault formatterをPrettierに設定。
+
+formatOnSaveをオンにすれば保存時にAstro等が自動整形されます。
+
+## NPMリンター機能
 
 | 機能                           | コマンド           | 説明                                                                              |
 | ------------------------------ | ------------------ | --------------------------------------------------------------------------------- |
@@ -44,7 +56,7 @@ node v24.3.0
 | HTMLコードチェック（API）      | `npm run w3c`      | HTMLのオンラインAPIを使った検証（W3C ValidatorのAPI・１日の利用回数制限がある）   |
 | HTMLコードチェック（ローカル） | `npm run htmllint` | ローカルでHTMLコードチェック＆BEM形式チェック（.htmlvalidate.jsonで設定変更可能） |
 
-### リンター機能について
+### NPMを利用したリンター機能について
 
 `npm run htmllint`についてはbemルールに則ったリンターとなっています。
 

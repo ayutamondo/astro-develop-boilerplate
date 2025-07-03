@@ -1,6 +1,6 @@
 export interface PageParam {
-  id: string;
-  title: string;
+  id: string
+  title: string
 }
 
 export interface NewsItem {
