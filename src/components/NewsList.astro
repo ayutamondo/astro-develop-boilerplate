@@ -18,3 +18,30 @@ const { items } = Astro.props as { items: NewsItem[] }
     ))
   }
 </ul>
+
+<style lang="scss">
+  .news-list {
+    list-style: none;
+    padding: 0;
+
+    &__item {
+      border-bottom: 1px solid #ccc;
+      padding: 1em 0;
+    }
+
+    &__date {
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    &__cat {
+      font-weight: bold;
+      margin-top: 0.5em;
+    }
+
+    &__title {
+      font-size: 1.2em;
+      margin-top: 0.2em;
+    }
+  }
+</style>
