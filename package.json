@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "rm -rf dist && astro build",
     "postbuild": "node tools/beautifyHtml.cjs",
     "preview": "astro preview",
     "jslint": "eslint . --ignore-pattern public/",

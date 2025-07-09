@@ -25,11 +25,22 @@ export default defineConfig({
     },
     integrations: [relativeLinks()],
     build: {
-      // minify: false,
+      inlineStylesheets: 'never', // CSSを常に外部ファイルとして出力
+      minify: false,
+      cssMinify: false,
+      cssCodeSplit: false,
       rollupOptions: {
         output: {
-          assetFileNames: 'css/[name][extname]',
-          entryFileNames: 'js/[name].js',
+          assetFileNames: (assetInfo) => {
+            const fileName = assetInfo?.names
+            if (fileName && Array.isArray(fileName)) {
+              const extType = fileName[0].split('.').at(-1)
+              if (extType === 'css') {
+                return 'assets/css/[name][extname]'
+              }
+            }
+            return `assets/images/[name][extname]`
+          },
         },
       },
     },

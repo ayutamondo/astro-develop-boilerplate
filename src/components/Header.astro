@@ -11,7 +11,7 @@ const { pageParam } = Astro.props as { pageParam: PageParam }
 ---
 
 <header class="site-header">
-  <div class="container">
+  <div class="site-header__container">
     {
       (pageParam.id === 'top' && (
         <h1 class="site-title">
@@ -36,3 +36,36 @@ const { pageParam } = Astro.props as { pageParam: PageParam }
     </nav>
   </div>
 </header>
+
+<style lang="scss">
+  .site-header {
+    background: $base-color;
+    color: white;
+    padding: 1rem 0;
+    &__container {
+      padding: 1rem;
+      @include inner(1000px);
+    }
+  }
+
+  .site-title {
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .site-nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+</style>

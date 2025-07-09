@@ -1,9 +1,9 @@
 ---
+import '../styles/common.scss'
 import type { PageParam } from '../types'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import app from '../scripts/app.ts?url'
-import '../styles/common.scss'
 
 // タイトル設定
 const { pageParam } = Astro.props as { pageParam: PageParam }
@@ -21,7 +21,6 @@ if (pageParam.id === 'top') {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <link rel="stylesheet" href="/styles/main.css" />
     <script type="module" src={app}></script>
   </head>
   <body>
@@ -30,3 +29,17 @@ if (pageParam.id === 'top') {
     <Footer />
   </body>
 </html>
+
+<script>
+  const message: string = 'なるべくグローバルなtsはBaseLayoutに記載'
+  console.log(message)
+</script>
+
+<style lang="scss">
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #f8f8f8;
+    color: $base-color;
+  }
+</style>

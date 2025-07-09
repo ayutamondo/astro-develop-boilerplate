@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ContactForm from '../components/ContactForm.astro'
+import type { PageParam } from '../types'
+
+const pageParam: PageParam = {
+  id: 'contact',
+  title: 'お問い合わせ',
+}
+---
+
+<BaseLayout pageParam={pageParam}>
+  <main class="main-content">
+    <h2 class="main-content__title">お問い合わせ</h2>
+    <ContactForm />
+  </main>
+</BaseLayout>
+
+<style lang="scss"></style>
