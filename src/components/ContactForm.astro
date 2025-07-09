@@ -1,0 +1,170 @@
+<div class="contact-form">
+  <form id="contactForm" method="POST" action="/api/submit" novalidate>
+    <table class="contact-form__table">
+      <tbody>
+        <tr>
+          <th>名前</th>
+          <td>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="contact-form__text"
+              placeholder="山田　太郎"
+              required
+            />
+            <div class="error-message" data-for="name"></div>
+          </td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="text@gmail.com"
+              class="contact-form__text"
+              required
+            />
+            <div class="error-message" data-for="email"></div>
+          </td>
+        </tr>
+        <tr>
+          <th>メッセージ</th>
+          <td>
+            <textarea name="message" id="message" class="contact-form__message" required></textarea>
+            <div class="error-message" data-for="message"></div>
+          </td>
+        </tr>
+        <tr>
+          <th>性別</th>
+          <td>
+            <label><input type="radio" name="gender" value="male" required /> 男性</label>
+            <label><input type="radio" name="gender" value="female" /> 女性</label>
+            <div class="error-message" data-for="gender"></div>
+          </td>
+        </tr>
+        <tr>
+          <th>同意</th>
+          <td>
+            <label
+              ><input type="checkbox" name="agree" id="agree" required /> 利用規約に同意する</label
+            >
+            <div class="error-message" data-for="agree"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="contact-form__submit">
+      <button type="submit">送信</button>
+    </div>
+  </form>
+</div>
+
+<style lang="scss">
+  .contact-form {
+    margin-top: 30px;
+    &__table {
+      width: 100%;
+      th,
+      td {
+        text-align: left;
+        border-top: solid 1px #ddd;
+        padding: 20px;
+      }
+    }
+    &__text {
+      width: 100%;
+      padding: 10px;
+    }
+    &__message {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+    }
+    &__submit {
+      margin-top: 20px;
+      text-align: center;
+      button {
+        background: #cc1f1f;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 50px;
+        color: #fff;
+        font-weight: bold;
+      }
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm') as HTMLFormElement | null
+    if (!form) return
+
+    const showError = (name: string, message: string) => {
+      const errorDiv = form.querySelector(
+        `.error-message[data-for="${name}"]`
+      ) as HTMLElement | null
+      if (errorDiv) {
+        errorDiv.textContent = message
+        errorDiv.style.color = 'red'
+      }
+    }
+
+    const clearErrors = () => {
+      form.querySelectorAll('.error-message').forEach((div) => {
+        ;(div as HTMLElement).textContent = ''
+      })
+    }
+
+    form.addEventListener('submit', (e: Event) => {
+      e.preventDefault()
+      clearErrors()
+
+      let hasError = false
+
+      const nameInput = form.elements.namedItem('name') as HTMLInputElement | null
+      if (!nameInput?.value.trim()) {
+        showError('name', '名前は必須です')
+        hasError = true
+      }
+
+      const emailInput = form.elements.namedItem('email') as HTMLInputElement | null
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailInput?.value.trim()) {
+        showError('email', 'メールアドレスは必須です')
+        hasError = true
+      } else if (!emailPattern.test(emailInput.value)) {
+        showError('email', '有効なメールアドレスを入力してください')
+        hasError = true
+      }
+
+      const messageInput = form.elements.namedItem('message') as HTMLTextAreaElement | null
+      if (!messageInput?.value.trim()) {
+        showError('message', 'メッセージは必須です')
+        hasError = true
+      }
+
+      const genderInputs = form.querySelectorAll(
+        'input[name="gender"]'
+      ) as NodeListOf<HTMLInputElement>
+      const genderSelected = Array.from(genderInputs).some((input) => input.checked)
+      if (!genderSelected) {
+        showError('gender', '性別を選択してください')
+        hasError = true
+      }
+
+      const agreeInput = form.elements.namedItem('agree') as HTMLInputElement | null
+      if (!agreeInput?.checked) {
+        showError('agree', '利用規約に同意してください')
+        hasError = true
+      }
+
+      if (!hasError) {
+        form.submit()
+      }
+    })
+  })
+</script>
