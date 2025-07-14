@@ -1,9 +1,10 @@
 ---
-import BaseLayout from '../components/BaseLayout.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
 import NewsList from '../components/NewsList.astro'
 import type { PageParam } from '../types'
 import { newsItems } from '../data/news'
-import '../styles/main.scss'
+import Image from 'astro/components/Image.astro'
+import myImage from '../images/morning.jpg'
 
 const pageParam: PageParam = {
   id: 'top',
@@ -18,6 +19,16 @@ const pageParam: PageParam = {
     <h2 class="main-content__title main-content__title--red">ようこそ Astro サイトへ！</h2>
     <p class="main-content__text">これは Astro + SCSS + JS の構成サンプルです。</p>
     <p class="main-content__title--second">まぶすルール</p>
+    <p class="main-content__text">srcフォルダからはインポートが必要（最適化済み）</p>
+    <Image src={myImage} alt="説明" class="main-content__image" />
+    <p class="main-content__text">Publicからはこちら</p>
+    <Image
+      src="/assets/images/fashion.png"
+      alt="説明"
+      width="1041"
+      height="231"
+      class="main-content__image"
+    />
     <button><h3>タイトルです</h3></button>
     <NewsList items={newsItems} />
   </main>
